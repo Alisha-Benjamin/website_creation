@@ -1,181 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Social Media Page</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f0f0;
-    }
-    header {
-        background-color: #333;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
-    }
-    .container {
-        max-width: 1200px;
-        margin: 20px auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    .post {
-        background-color: #fff;
-        margin-bottom: 20px;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        width: calc(33.33% - 20px);
-        position: relative; /* Added for heart button positioning */
-    }
-    .post img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 5px;
-    }
-    .post-actions {
-        margin-top: 10px;
-        display: flex;
-        justify-content: space-between;
-    }
-    .comments {
-        margin-top: 20px;
-    }
-    .comment {
-        background-color: #f9f9f9;
-        margin-bottom: 10px;
-        padding: 10px;
-        border-radius: 5px;
-    }
-    footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-    /* Heart-shaped like button */
-    .like-btn {
-        width: 30px;
-        height: 30px;
-        background-color: transparent;
-        border: none;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-    }
-    .heart {
-        width: 100%;
-        height: 100%;
-        fill: #ccc; /* Initial color */
-        transition: fill 0.3s ease;
-    }
-    .heart.active {
-        fill: #ff0000; /* Red color when active */
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Sphere</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .like-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .like-button .heart {
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .like-button .heart.clicked {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-<header>
-    <h1>Social Media</h1>
-</header>
-<div class="container">
-    <div class="post">
-        <img src="photo1.jpg" alt="Photo 1">
-        <button class="like-btn" onclick="likePost(1)">
-            <svg class="heart" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-            </svg>
-        </button>
-        <div class="post-actions">
-            <button onclick="commentPost(1)">Comment</button>
-            <button onclick="sharePost(1)">Share</button>
+    <header>
+        <h1>Social Sphere</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+        <!-- Your photo gallery and interactive elements will go here -->
+    </main>
+    <footer>
+        <p>&copy; 2024 Social Sphere. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
         </div>
-        <div class="comments" id="comments-1"></div>
-    </div>
-    <div class="post">
-        <img src="photo2.jpg" alt="Photo 2">
-        <button class="like-btn" onclick="likePost(2)">
-            <svg class="heart" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-            </svg>
-        </button>
-        <div class="post-actions">
-            <button onclick="commentPost(2)">Comment</button>
-            <button onclick="sharePost(2)">Share</button>
-        </div>
-        <div class="comments" id="comments-2"></div>
-    </div>
-    <div class="post">
-        <img src="photo3.jpg" alt="Photo 3">
-        <button class="like-btn" onclick="likePost(3)">
-            <svg class="heart" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-            </svg>
-        </button>
-        <div class="post-actions">
-            <button onclick="commentPost(3)">Comment</button>
-            <button onclick="sharePost(3)">Share</button>
-        </div>
-        <div class="comments" id="comments-3"></div>
-    </div>
-    <!-- Add more posts here -->
-    <div class="post">
-        <img src="photo4.jpg" alt="Photo 4">
-        <button class="like-btn" onclick="likePost(4)">
-            <svg class="heart" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-            </svg>
-        </button>
-        <div class="post-actions">
-            <button onclick="commentPost(4)">Comment</button>
-            <button onclick="sharePost(4)">Share</button>
-        </div>
-        <div class="comments" id="comments-4"></div>
-    </div>
-    <div class="post">
-        <img src="photo5.jpg" alt="Photo 5">
-        <button class="like-btn" onclick="likePost(5)">
-            <svg class="heart" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-            </svg>
-        </button>
-        <div class="post-actions">
-            <button onclick="commentPost(5)">Comment</button>
-            <button onclick="sharePost(5)">Share</button>
-        </div>
-        <div class="comments" id="comments-5"></div>
-    </div>
-</div>
-<footer>
-    &copy; 2024 Social Media Page
-</footer>
-<script>
-    function likePost(postId) {
-        var heart = document.querySelector(".post:nth-child(" + postId + ") .heart");
-        heart.classList.toggle("active");
-    }
-    function commentPost(postId) {
-        var comment = prompt("Enter your comment:");
-        if (comment) {
-            var commentsDiv = document.getElementById("comments-" + postId);
-            var newComment = document.createElement("div");
-            newComment.classList.add("comment");
-            newComment.textContent = comment;
-            commentsDiv.appendChild(newComment);
-        }
-    }
-    function sharePost(postId) {
-        alert("Shared Post " + postId);
-    }
-</script>
+    </footer>
+    <script>
+        const likeButtons = document.querySelectorAll('.like-button');
+        const commentForms = document.querySelectorAll('.comment-form');
+
+        likeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.querySelector('.heart').classList.toggle('clicked');
+                // Update like counter logic here
+            });
+        });
+
+        commentForms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const commentInput = form.querySelector('.comment-input');
+                const commentText = commentInput.value.trim();
+                if (commentText !== '') {
+                    // Add logic to display the comment in the UI
+                    commentInput.value = '';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
